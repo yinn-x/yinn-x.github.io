@@ -8,7 +8,7 @@
     <link href="/2022/02/06/iFleaBooks/"/>
     <url>/2022/02/06/iFleaBooks/</url>
     
-    <content type="html"><![CDATA[<p>一个Linux环境下的二手书交易系统</p><p>作为C++个人练手项目，实现了较完整的交易系统前后台功能，包括用户注册、登录、浏览商品、发布商品、修改信息，管理员进行后台数据管理，本地数据载入与更新等，并基于Linux命令行进行交互。</p><p>GitHub链接：<a href="https://github.com/yinn-x/iFleaBooks">https://github.com/yinn-x/iFleaBooks</a></p><hr><ul><li><p>开发环境：</p><ul><li><p>Ubuntu 21.10</p></li><li><p>VS Code</p></li></ul></li><li><p>实现功能：</p><ul><li>User：<ul><li>注册 &amp; 登录 &amp; 注销；</li><li>浏览书库 &#x2F; 搜索书籍 &amp; 查看书的详细信息；</li><li>购买二手书 &amp; 查看已购订单；</li><li>发布二手书 &amp; 修改详细信息；</li><li>下架自己的发布 &amp; 查看卖出订单；</li><li>个人信息管理 &amp; 钱包充值。</li></ul></li><li>Admin：<ul><li>查看 &#x2F; 检索所有书籍 &amp; 下架书籍；</li><li>查看和管理所有订单；</li><li>查看和管理所有用户信息。</li></ul></li></ul></li><li><p>优化方向：</p><p>后续将加入MySQL作为数据库。</p></li><li><p>效果</p><ul><li><p>登录界面：</p><p><img src="/1.png"></p></li><li><p>买书界面：</p><p><img src="/2.png"></p></li><li><p>钱包充值：</p><p><img src="/3.png"></p></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li><p>一个Linux环境下的二手书交易系统</p><p>作为C++个人练手项目，实现了较完整的交易系统前后台功能，包括用户注册、登录、浏览商品、发布商品、修改信息，管理员进行后台数据管理，本地数据载入与更新等，并基于Linux命令行进行交互。</p><p>GitHub链接：<a href="https://github.com/yinn-x/iFleaBooks">https://github.com/yinn-x/iFleaBooks</a></p></li></ul><hr><ul><li><p>开发环境：</p><ul><li><p>Ubuntu 21.10</p></li><li><p>VS Code</p></li></ul></li><li><p>实现功能：</p><ul><li>User：<ul><li>注册 &amp; 登录 &amp; 注销；</li><li>浏览书库 &#x2F; 搜索书籍 &amp; 查看书的详细信息；</li><li>购买二手书 &amp; 查看已购订单；</li><li>发布二手书 &amp; 修改详细信息；</li><li>下架自己的发布 &amp; 查看卖出订单；</li><li>个人信息管理 &amp; 钱包充值。</li></ul></li><li>Admin：<ul><li>查看 &#x2F; 检索所有书籍 &amp; 下架书籍；</li><li>查看和管理所有订单；</li><li>查看和管理所有用户信息。</li></ul></li></ul></li><li><p>优化方向：</p><p>后续将加入MySQL作为数据库。</p></li><li><p>效果</p><ul><li><p>登录界面：</p><p><img src="/img/iFleaBooks/1.png"></p></li><li><p>买书界面：</p><p><img src="/img/iFleaBooks/2.png"></p></li><li><p>钱包充值：</p><p><img src="/img/iFleaBooks/3.png"></p></li></ul></li></ul>]]></content>
     
     
     <categories>
@@ -25,7 +25,7 @@
   
   
   <entry>
-    <title>Note of C++ Primer（一）</title>
+    <title>Note of C++ Primer</title>
     <link href="/2022/02/02/Note%20of%20C++%20Primer/"/>
     <url>/2022/02/02/Note%20of%20C++%20Primer/</url>
     
@@ -50,7 +50,7 @@
     <link href="/2022/01/28/MyFirstBlog/"/>
     <url>/2022/01/28/MyFirstBlog/</url>
     
-    <content type="html"><![CDATA[<p>​        深夜被一些诡异的报错反复折磨，气到重装Ubuntu。漫长的安装等待中想到，要不边等边把个人博客给建了吧，于是一通操作就有了现在的这篇blog。</p><p>​        鉴于本人的菜鸡水平应该也没办法分享出什么技术，这个博客大概就是给自己的各种笔记啥的找个归属地。</p><p>​        所以本人的寒假又多了点乐子：把博客建得像模像样一点（误</p>]]></content>
+    <content type="html"><![CDATA[<ul><li><p>深夜被一些诡异的报错反复折磨，气到重装Ubuntu。漫长的安装等待中想到，要不边等边把个人博客给建了吧，于是一通操作就有了现在的这篇blog。</p><p>鉴于本人的菜鸡水平应该也没办法分享出什么技术，这个博客大概就是给自己的各种笔记啥的找个归属地。</p><p>所以本人的寒假又多了点乐子：把博客建得像模像样一点（误</p></li></ul>]]></content>
     
     
     <categories>
