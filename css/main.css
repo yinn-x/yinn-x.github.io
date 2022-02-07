@@ -47,8 +47,8 @@
   transition: background-color 0.2s ease-in-out;
   border-radius: 0.5rem;
   z-index: 3;
-  -webkit-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  -webkit-box-shadow: 0 12px 15px 0 rgba(0,0,0,0), 0 17px 50px 0 rgba(0,0,0,0);
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.1), 0 17px 50px 0 rgba(0,0,0,0);
 }
 .copy-btn {
   display: inline-block;
@@ -892,9 +892,11 @@ label {
 }
 .markdown-body {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 2;
   font-family: var(--font-family-sans-serif);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 1rem;
+  margin-right: 0.7rem;
   color: var(--post-text-color);
 }
 .markdown-body h1,
