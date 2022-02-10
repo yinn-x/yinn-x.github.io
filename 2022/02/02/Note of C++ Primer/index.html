@@ -16,15 +16,15 @@
   <meta name="author" content="YIN xintian">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从 C 到 C++ &amp; 多态 &amp; 类的默认函数">
+    <meta name="description" content="从C到C++、多态、类的默认函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Note of C++ Primer">
 <meta property="og:url" content="http://example.com/2022/02/02/Note%20of%20C++%20Primer/index.html">
 <meta property="og:site_name" content="YiNN&#39;s Blog">
-<meta property="og:description" content="从 C 到 C++ &amp; 多态 &amp; 类的默认函数">
+<meta property="og:description" content="从C到C++、多态、类的默认函数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-02T10:01:08.000Z">
-<meta property="article:modified_time" content="2022-02-09T18:26:10.769Z">
+<meta property="article:modified_time" content="2022-02-09T19:08:26.021Z">
 <meta property="article:author" content="YIN xintian">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -218,9 +218,8 @@
             <h1 style="display: none">Note of C++ Primer</h1>
             
             <div class="markdown-body">
-              <h2 id="从-C-到-C"><a href="#从-C-到-C" class="headerlink" title="从 C 到 C++"></a>从 C 到 C++</h2><p>一些 C++ 的新特性：</p>
-<ul>
-<li><p><strong>多态：</strong></p>
+              <h2 id="1-从-C-到-C"><a href="#1-从-C-到-C" class="headerlink" title="1. 从 C 到 C++"></a>1. 从 C 到 C++</h2><p>一些 C++ 的新特性：</p>
+<p><strong>多态：</strong></p>
 <ul>
 <li><p>静态多态：（1）重载（函数重载 &amp; 运算符重载） </p>
 <p>​                   （2）泛型（函数模板 &amp; 类模板）</p>
@@ -229,8 +228,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p><strong>类：</strong></p>
+<p><strong>类：</strong></p>
 <ul>
 <li><p>继承（基类 &amp; 子类）</p>
 </li>
@@ -241,8 +239,7 @@
 <p>​                   （3）this 指针</p>
 </li>
 </ul>
-</li>
-<li><p><strong>其他：</strong></p>
+<p><strong>其他：</strong></p>
 <ul>
 <li><p>引用变量</p>
 </li>
@@ -259,9 +256,7 @@
 <li><p>函数的默认参数</p>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h4 id="1-泛型编程"><a href="#1-泛型编程" class="headerlink" title="1. 泛型编程"></a>1. 泛型编程</h4><p>泛型编程属于静态多态，在 C++ 中主要通过模板函数和模板类实现。</p>
+<h2 id="2-多态"><a href="#2-多态" class="headerlink" title="2. 多态"></a>2. 多态</h2><h4 id="（1）-泛型编程"><a href="#（1）-泛型编程" class="headerlink" title="（1） 泛型编程"></a>（1） 泛型编程</h4><p>泛型编程属于静态多态，在 C++ 中主要通过模板函数和模板类实现。</p>
 <p>函数模板的性质：</p>
 <ol>
 <li>函数模板不是真正的函数，只是编译时生成具体函数的一个”模子”。</li>
@@ -290,9 +285,9 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;&gt; <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Swap</span><span class="hljs-params">(<span class="hljs-type">int</span>&amp;, <span class="hljs-type">int</span>&amp;)</span></span>&#123;<br>	...<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>意为“当实参为两个int类型时，不要使用Swap()模板来生成函数定义，而应使用专门为int类型显式地定义地具体函数”。</p>
-<h4 id="2-动态多态"><a href="#2-动态多态" class="headerlink" title="2.动态多态"></a>2.动态多态</h4><p>动态多态主要通过继承重写基类的虚函数实现，在程序运行时根据基类的指针（或引用）指向的对象来确定自己具体调用哪一个类的虚函数。</p>
-<h2 id="类的4个默认函数"><a href="#类的4个默认函数" class="headerlink" title="类的4个默认函数"></a>类的4个默认函数</h2><p>类的4个默认函数分别为构造函数、析构函数、拷贝函数和赋值函数。通常来讲，1个类包含多个构造函数（由1个或多个普通构造函数与1个拷贝构造函数组成）、1个赋值函数和1个析构函数。若不编写上述函数，C++编译器会自动为类产生4个缺省的函数。然而，使用默认的构造函数与析构函数，相当于放弃了自主“初始化”与“清除”机会。同时，默认的拷贝构造函数、赋值函数采用“位拷贝”而非“值拷贝”，类中含指针变量时将出错。</p>
-<h4 id="1-构造函数："><a href="#1-构造函数：" class="headerlink" title="1. 构造函数："></a>1. 构造函数：</h4><p>构造函数是与类同名、无返回值的特殊成员函数，提供对成员变量初始化的方法。程序创建时将自动调用构造函数。</p>
+<h4 id="（2）动态多态"><a href="#（2）动态多态" class="headerlink" title="（2）动态多态"></a>（2）动态多态</h4><p>动态多态主要通过继承重写基类的虚函数实现，在程序运行时根据基类的指针（或引用）指向的对象来确定自己具体调用哪一个类的虚函数。</p>
+<h2 id="3-类的4个默认函数"><a href="#3-类的4个默认函数" class="headerlink" title="3. 类的4个默认函数"></a>3. 类的4个默认函数</h2><p>类的4个默认函数分别为构造函数、析构函数、拷贝函数和赋值函数。通常来讲，1个类包含多个构造函数（由1个或多个普通构造函数与1个拷贝构造函数组成）、1个赋值函数和1个析构函数。若不编写上述函数，C++编译器会自动为类产生4个缺省的函数。然而，使用默认的构造函数与析构函数，相当于放弃了自主“初始化”与“清除”机会。同时，默认的拷贝构造函数、赋值函数采用“位拷贝”而非“值拷贝”，类中含指针变量时将出错。</p>
+<h4 id="（1）构造函数："><a href="#（1）构造函数：" class="headerlink" title="（1）构造函数："></a>（1）构造函数：</h4><p>构造函数是与类同名、无返回值的特殊成员函数，提供对成员变量初始化的方法。程序创建时将自动调用构造函数。</p>
 <ul>
 <li><p><strong>默认的构造函数：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> &#123;<br>	string name;<br>	<span class="hljs-type">int</span> grade;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Student</span>() &#123;<br><br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
@@ -315,7 +310,7 @@
 <p><strong>也可通过初始化表进行初始化：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> &#123;<br>	string name;<br>	<span class="hljs-type">int</span> grade;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">Student</span>(string n, <span class="hljs-type">int</span> g): <span class="hljs-built_in">name</span>(x), <span class="hljs-built_in">grade</span>(g) &#123;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<h4 id="2-拷贝构造函数-amp-赋值函数："><a href="#2-拷贝构造函数-amp-赋值函数：" class="headerlink" title="2. 拷贝构造函数 &amp; 赋值函数："></a>2. 拷贝构造函数 &amp; 赋值函数：</h4><p>默认的拷贝构造函数：</p>
+<h4 id="（2）拷贝构造函数-amp-赋值函数："><a href="#（2）拷贝构造函数-amp-赋值函数：" class="headerlink" title="（2）拷贝构造函数 &amp; 赋值函数："></a>（2）拷贝构造函数 &amp; 赋值函数：</h4><p>默认的拷贝构造函数：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">Student(<span class="hljs-params">const</span> Student&amp; <span class="hljs-params">stu</span>)</span><br></code></pre></td></tr></table></figure>
 
 <p>默认的赋值函数：</p>
@@ -324,7 +319,7 @@
 <p>拷贝构造函数是在创建对象时调用，而赋值函数只能被已存在的对象调用。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">a</span><span class="hljs-params">(<span class="hljs-string">&quot;hello&quot;</span>)</span></span>;<br><span class="hljs-function">string <span class="hljs-title">b</span><span class="hljs-params">(<span class="hljs-string">&quot;world&quot;</span>)</span></span>;<br>string c = a; <span class="hljs-comment">//调用了拷贝构造函数，也可写成stirng c(a);</span><br>c = b; <span class="hljs-comment">//调用了赋值函数 </span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-析构函数："><a href="#3-析构函数：" class="headerlink" title="3.析构函数："></a>3.析构函数：</h4><p>也是无参无返回类型的特殊成员函数，但它不能随意调用，没有重载，只有在类对象的生命期结束时，由系统自动调用，用来在系统释放对象前做一些清理工作。</p>
+<h4 id="（3）析构函数："><a href="#（3）析构函数：" class="headerlink" title="（3）析构函数："></a>（3）析构函数：</h4><p>也是无参无返回类型的特殊成员函数，但它不能随意调用，没有重载，只有在类对象的生命期结束时，由系统自动调用，用来在系统释放对象前做一些清理工作。</p>
 
             </div>
             <hr>
