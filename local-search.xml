@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>NCP</title>
+    <link href="/2022/03/03/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/"/>
+    <url>/2022/03/03/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="网络通信协议"><a href="#网络通信协议" class="headerlink" title="网络通信协议"></a>网络通信协议</h2><p>网络通信协议是一种网络通用语言，为连接不同操作系统和不同硬件体系结构的互联网络引提供通信支持。协议定义了数据单元使用的格式，信息单元应该包含的信息与含义，连接方式，信息发送和接收的时序，从而确保网络中数据顺利地传送到确定的地方。</p><p>通信协议采用分层的结构，各层协议之间既相互独立又相互高效的协调工作。所有了解网络的同学都知道的的就是OSI七层模型和TCP&#x2F;IP四层模型。OSI七层是理论模型，实际使用的是TCP&#x2F;IP四层模型。</p><p><img src="https://pica.zhimg.com/80/v2-2a82bbd54998e6988c6842048643a31a_1440w.jpg?source=1940ef5c" alt="img"></p><p>就像我们使用QQ、微信等发信息的时候，目标是属于对方的应用层，但是我们不能直接发送到对方的应用层。所以发送的信息会从上往下经过每一层进行封装，通过不同协议封装最终通过网线传输到对方电脑，然后对方电脑从下往上一层一层进行解封装，最终数据到达对方应用层对应的软件。</p><p>常用的通信协议有：</p><p>TCP&#x2F;IP协议（传输控制协议&#x2F;网际协议）、802.11协议（无线局域网协议）等。</p><p>虽然说是TCP&#x2F;IP协议，但不仅仅包含TCP和IP协议，还有ARP、ICMP、FTP等协议。802.11协议协议也是一样，像我们现在用的WiFi5（802.11ac）、WiFi6（802.11ax）也都包含在内。</p><p>从无线局域网协议可以看出，通信协议也是随着技术不断发展而不断更新换代的，像无线局域网最新的就是WiFi6E。</p><p>那无线网络协议如何和有线网络协议之间转换呢？</p><p>简单点来说，就是通过交换机中数据的解封装以及再封装功能一样来实现，毕竟无线路由器也是包含交换机功能的。就像和外国人沟通的时候，我们说汉语，他们说英语，这个时候可以通过一个翻译器作为中间桥梁进行沟通。</p><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP&#x2F;1.0的第六版，HTTP&#x2F;1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。<br>HTTP协议的主要特点可概括如下：<br>1.支持客户&#x2F;服务器模式。<br>2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。<br>3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。<br>4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。<br>5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p><p><strong>URL</strong></p><p>  http（超文本传输协议）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，HTTP1.1版本中给出一种持续连接的机制，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。</p><p>HTTP URL (URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息)的格式如下：<br><code>http://host[&quot;:&quot;port\][abs_path]</code><br>http表示要通过HTTP协议来定位网络资源；host表示合法的Internet主机域名或者IP地址；port指定一个端口号，为空则使用缺省端口80；abs_path指定请求资源的URI；如果URL中没有给出abs_path，那么当它作为请求URI时，必须以“&#x2F;”的形式给出，通常这个工作浏览器自动帮我们完成。<br>eg:<br>1、输入：<a href="http://www.guet.edu.cn/">www.guet.edu.cn</a><br>浏览器自动转换成：<a href="http://www.guet.edu.cn/">http://www.guet.edu.cn/</a><br>2、http:192.168.0.116:8080&#x2F;index.jsp </p><p><strong>HTTP请求</strong></p><p>  http请求由三部分组成，分别是：请求行、消息报头、请求正文</p><p>1、请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本，格式如下：Method Request-URI HTTP-Version CRLF<br>其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。</p><p>请求方法（所有方法全为大写）有多种，各个方法的解释如下：<br>GET   请求获取Request-URI所标识的资源<br>POST  在Request-URI所标识的资源后附加新的数据<br>HEAD  请求获取由Request-URI所标识的资源的响应消息报头<br>PUT   请求服务器存储一个资源，并用Request-URI作为其标识<br>DELETE 请求服务器删除Request-URI所标识的资源<br>TRACE  请求服务器回送收到的请求信息，主要用于测试或诊断<br>CONNECT 保留将来使用<br>OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求<br>应用举例：<br>GET方法：在浏览器的地址栏中输入网址的方式访问网页时，浏览器采用GET方法向服务器获取资源，eg:GET &#x2F;form.html HTTP&#x2F;1.1 (CRLF)</p><p>POST方法要求被请求服务器接受附在请求后面的数据，常用于提交表单。<br>eg：POST &#x2F;reg.jsp HTTP&#x2F; (CRLF)<br>Accept:image&#x2F;gif,image&#x2F;x-xbit,… (CRLF)<br>…<br>HOST:<a href="http://www.guet.edu.cn/">www.guet.edu.cn</a> (CRLF)<br>Content-Length:22 (CRLF)<br>Connection:Keep-Alive (CRLF)<br>Cache-Control:no-cache (CRLF)<br>(CRLF)     &#x2F;&#x2F;该CRLF表示消息报头已经结束，在此之前为消息报头<br>user&#x3D;jeffrey&amp;pwd&#x3D;1234 &#x2F;&#x2F;此行以下为提交的数据</p><p>HEAD方法与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。利用这个方法，不必传输整个资源内容，就可以得到Request-URI所标识的资源的信息。该方法常用于测试超链接的有效性，是否可以访问，以及最近是否更新。<br>2、请求报头后述<br>3、请求正文(略) </p><p><strong>HTTP响应</strong></p><p>  在接收和解释请求消息后，服务器返回一个HTTP响应消息。</p><p>HTTP响应也是由三个部分组成，分别是：状态行、消息报头、响应正文<br>状态行格式如下：<br>HTTP-Version Status-Code Reason-Phrase CRLF<br>其中，HTTP-Version表示服务器HTTP协议的版本；Status-Code表示服务器发回的响应状态代码；Reason-Phrase表示状态代码的文本描述。<br>状态代码有三位数字组成，第一个数字定义了响应的类别，且有五种可能取值：<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求<br>常见状态代码、状态描述、说明：<br>200 OK   &#x2F;&#x2F;客户端请求成功<br>400 Bad Request &#x2F;&#x2F;客户端请求有语法错误，不能被服务器所理解<br>401 Unauthorized &#x2F;&#x2F;请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用<br>403 Forbidden &#x2F;&#x2F;服务器收到请求，但是拒绝提供服务<br>404 Not Found &#x2F;&#x2F;请求资源不存在，eg：输入了错误的URL<br>500 Internal Server Error &#x2F;&#x2F;服务器发生不可预期的错误<br>503 Server Unavailable &#x2F;&#x2F;服务器当前不能处理客户端的请求，一段时间后可能恢复正常<br>eg：HTTP&#x2F;1.1 200 OK （CRLF）</p><p>3、响应正文就是服务器返回的资源的内容 </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Note</category>
+      
+      <category>Web</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Note for Python 02</title>
     <link href="/2022/02/16/PygameNote/"/>
     <url>/2022/02/16/PygameNote/</url>
@@ -88,7 +109,7 @@
   
   
   <entry>
-    <title>🔝 About</title>
+    <title>About</title>
     <link href="/2022/02/01/About/"/>
     <url>/2022/02/01/About/</url>
     
