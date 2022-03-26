@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon/favicon.png">
+  <link rel="icon" href="/img/icon/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#85979b">
+  <meta name="author" content="YIN xintian">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Go基本语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoMemo">
+<meta property="og:url" content="http://example.com/2022/03/26/GoMemo/index.html">
+<meta property="og:site_name" content="YiNN&#39;s Blog">
+<meta property="og:description" content="Go基本语法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-26T05:39:04.000Z">
+<meta property="article:modified_time" content="2022-03-26T05:52:49.585Z">
+<meta property="article:author" content="YIN xintian">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>GoMemo - YiNN&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YiNN&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg/4.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="GoMemo">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-26 13:39" pubdate>
+        2022年3月26日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.2k 字
+    </span>
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">GoMemo</h1>
+            
+            <div class="markdown-body">
+              <h1 id="切片slice"><a href="#切片slice" class="headerlink" title="切片slice"></a>切片slice</h1><p>切片是一个引用类型（指针）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//对数组进行切片：	</span><br>arr3 := [<span class="hljs-number">5</span>]<span class="hljs-type">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>sl := []<span class="hljs-type">int</span>(arr3[<span class="hljs-number">1</span>:<span class="hljs-number">4</span>]) <span class="hljs-comment">//[start:end]</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//从字符串生成字节切片：</span><br>b:= []<span class="hljs-type">byte</span>(str)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//使用 make() 函数来创建一个切片，同时创建相关数组：</span><br><span class="hljs-comment">//len是必须的，cap可为空</span><br>s2 := <span class="hljs-built_in">make</span>([]<span class="hljs-type">int</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>)<span class="hljs-comment">//[]type, len, cap</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>slice可索引，由 <code>len()</code> 获取长度。</li>
+<li>数组的长度在运行时不可修改，切片的长度在运行时可修改</li>
+</ul>
+<h3 id="切片重组-reslicing"><a href="#切片重组-reslicing" class="headerlink" title="切片重组 reslicing"></a>切片重组 reslicing</h3><h4 id="append"><a href="#append" class="headerlink" title="append()"></a><code>append()</code></h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">func append(s[]<span class="hljs-built_in">T</span>, x ...<span class="hljs-built_in">T</span>) []<span class="hljs-built_in">T</span><br></code></pre></td></tr></table></figure>
+
+<p>如果 s 的容量不足以存储新增元素，append 会分配新的切片来保证已有切片元素和新增元素的存储。</p>
+<p>如果想将切片 y 追加到切片 x 后面，只要将第二个参数扩展成一个列表即可：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">x</span> = append(x, y...)<br></code></pre></td></tr></table></figure>
+
+<h4 id="copy"><a href="#copy" class="headerlink" title="copy()"></a><code>copy()</code></h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">copy</span><span class="hljs-params">(dst, src []T)</span></span> <span class="hljs-type">int</span><br></code></pre></td></tr></table></figure>
+
+<p>将类型为 T 的切片从源地址 src 拷贝到目标地址 dst，覆盖 dst 的相关元素，并且返回拷贝的元素个数。</p>
+<p>1.不同类型的切片无法复制<br>2.如果s1的长度大于s2的长度，将s2中对应位置上的值替换s1中对应位置的值<br>3.如果s1的长度小于s2的长度，多余的将不做替换</p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//声明map</span><br><span class="hljs-keyword">var</span> map1 <span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-type">int</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//带初始化的声明</span><br>mapLit := <span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-type">int</span>&#123;<span class="hljs-string">&quot;one&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;two&quot;</span>: <span class="hljs-number">2</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//使用make()创建map</span><br>mp := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-type">float32</span>)<br></code></pre></td></tr></table></figure>
+
+<p>key 可以是任意可以用 &#x3D;&#x3D; 或者 !&#x3D; 操作符比较的类型，比如 string、int、float。所以数组、切片和结构体不能作为 key；value 可以是任意类型的。</p>
+<h3 id="用切片作为value"><a href="#用切片作为value" class="headerlink" title="用切片作为value"></a>用切片作为value</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">mp1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>][]<span class="hljs-type">int</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="测试key是否存在"><a href="#测试key是否存在" class="headerlink" title="测试key是否存在"></a>测试key是否存在</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">val1,</span> isPresent = map1[key1]<br></code></pre></td></tr></table></figure>
+
+<p>如果 key1 存在于 map1，val1 就是 key1 对应的 value ，且 isPresent为true；如果 key1 不存在，val1 是一个空值，并 isPresent 为false。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//和 if 混合使用：</span><br><span class="hljs-keyword">if</span> _, ok := map1[key1]; ok &#123;<br>	<span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">delete</span><span class="hljs-params">(map1, key1)</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="for-range-的配套用法"><a href="#for-range-的配套用法" class="headerlink" title="for-range 的配套用法"></a>for-range 的配套用法</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">for</span> key, value := <span class="hljs-keyword">range</span> map1 &#123;<br>	...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="map-类型的切片"><a href="#map-类型的切片" class="headerlink" title="map 类型的切片"></a>map 类型的切片</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go">items := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">5</span>)<br><span class="hljs-comment">//切片items的每个元素都是map类型，且值为nil</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//通过索引初始化切片中的map元素</span><br><span class="hljs-keyword">for</span> i:= <span class="hljs-keyword">range</span> items &#123;<br>	items[i] = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">1</span>)<br>	items[i][<span class="hljs-number">1</span>] = <span class="hljs-number">2</span><br>&#125;<br><span class="hljs-comment">//下面这种操作是错误的，无法初始化真正的map元素</span><br><span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> items2 &#123;<br>	item = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// item is only a copy of the slice element.</span><br>	item[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span> <span class="hljs-comment">// This &#x27;item&#x27; will be lost on the next iteration.</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="map的排序"><a href="#map的排序" class="headerlink" title="map的排序"></a>map的排序</h3><p>需要将 key（或者 value）拷贝到一个切片，再对切片排序（使用 sort 包，详见第 7.6.6 节），然后可以使用切片的 for-range 方法打印出所有的 key 和 value。</p>
+<h1 id="结构struct"><a href="#结构struct" class="headerlink" title="结构struct"></a>结构struct</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> identifier <span class="hljs-keyword">struct</span> &#123;<br>    field1 type1<br>    field2 type2<br>    ...<br>&#125;<br><span class="hljs-comment">//一般在函数外声明</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="使用-new"><a href="#使用-new" class="headerlink" title="使用 new"></a><strong>使用 new</strong></h3><p>使用 <strong>new</strong> 函数给一个新的结构体变量分配内存，它返回指向已分配内存的指针：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//使用 new 函数给一个新的结构体变量分配内存</span><br><span class="hljs-comment">//t为指针，结构体字段为零值</span><br>stu1 := <span class="hljs-built_in">new</span>(student) <br><span class="hljs-comment">//相当于</span><br>stu2 := &amp;student&#123;name: <span class="hljs-string">&quot;a&quot;</span>, num: <span class="hljs-number">1</span>&#125;<br><br><span class="hljs-comment">//t是student类型</span><br>stu2 := student&#123;name: <span class="hljs-string">&quot;a&quot;</span>, num: <span class="hljs-number">1</span>&#125;<br><span class="hljs-comment">//打印：</span><br><span class="hljs-comment">//stu1: &amp;&#123;a 1&#125;</span><br><span class="hljs-comment">//stu2:  &#123;a 1&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="选择器（selector）"><a href="#选择器（selector）" class="headerlink" title="选择器（selector）"></a><strong>选择器（selector）</strong></h3><p>无论变量是一个结构体类型还是一个结构体类型指针，都使用同样的 <strong>选择器符（selector-notation）</strong> 来引用结构体的字段</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">structname.fieldname<br></code></pre></td></tr></table></figure>
+
+<h3 id="使用工厂方法创建结构体实例"><a href="#使用工厂方法创建结构体实例" class="headerlink" title="使用工厂方法创建结构体实例"></a>使用工厂方法创建结构体实例</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gauss"><span class="hljs-comment">//结构体类型</span><br><span class="hljs-built_in">type</span> File <span class="hljs-keyword">struct</span> &#123;<br>    fd      int     <span class="hljs-comment">// 文件描述符</span><br>    name    <span class="hljs-keyword">string</span>  <span class="hljs-comment">// 文件名</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//对应的工厂方法（名字以 new 或 New 开头</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewFile</span><span class="hljs-params">(fd <span class="hljs-type">int</span>, name <span class="hljs-type">string</span>)</span></span> *File &#123;<br>    <span class="hljs-keyword">if</span> fd &lt; <span class="hljs-number">0</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> &amp;File&#123;fd, name&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>调用<br>f := NewFile(<span class="hljs-number">10</span>, <span class="hljs-string">&quot;./test.txt&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="强制使用工厂方法"><a href="#强制使用工厂方法" class="headerlink" title="强制使用工厂方法"></a>强制使用工厂方法</h3><p>可以使类型自身对外部不可见，只有工厂方法对外可见，从而使类型变成私有的，就像在面向对象语言中那样。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> matrix <span class="hljs-keyword">struct</span> &#123;<br>    ...<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewMatrix</span><span class="hljs-params">(params)</span></span> *matrix &#123;<br>    m := <span class="hljs-built_in">new</span>(matrix) <span class="hljs-comment">// 初始化 m</span><br>    <span class="hljs-keyword">return</span> m<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在其他包里使用工厂方法：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;matrix&quot;</span><br>...<br>wrong := <span class="hljs-built_in">new</span>(matrix.matrix)     <span class="hljs-comment">// 编译失败（matrix 是私有的）</span><br>right := matrix.NewMatrix(...)  <span class="hljs-comment">// 实例化 matrix 的唯一方式</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>Go 方法是作用在接收者（receiver）上的一个函数，接收者是某种类型的变量</p>
+<p>接收者类型可以是（几乎）任何类型（除了接口</p>
+<p>类型和作用在它上面定义的方法必须在同一个包里定义</p>
+<p>定义方法的一般格式如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(recv receiver_type)</span></span> methodName(parameter_list) (return_value_list) &#123; ... &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> student <span class="hljs-keyword">struct</span> &#123;<br>	name  <span class="hljs-type">string</span><br>	score <span class="hljs-type">float32</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewStudent</span><span class="hljs-params">(name <span class="hljs-type">string</span>, score <span class="hljs-type">int</span>)</span></span> *student &#123;<br>	<span class="hljs-keyword">return</span> &amp;student&#123;name, score&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(stu student)</span></span> PrintStu() &#123;<br>	fmt.Printf(<span class="hljs-string">&quot;name:%v\nscore:%v&quot;</span>, stu.name, stu.score)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	stu := NewStudent(<span class="hljs-string">&quot;alice&quot;</span>, <span class="hljs-number">99</span>)<br>	stu.PrintStu()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果想要方法改变接收者的数据，就在接收者的指针类型上定义该方法。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus">type B struct &#123;<br>	thing int<br>&#125;<br><br>func (<span class="hljs-selector-tag">b</span> *B) <span class="hljs-built_in">change</span>() &#123; <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.thing</span> = <span class="hljs-number">1</span> &#125;<br><br>func (<span class="hljs-selector-tag">b</span> B) <span class="hljs-built_in">write</span>() string &#123; return fmt<span class="hljs-selector-class">.Sprint</span>(b) &#125;<br><br>func <span class="hljs-selector-tag">main</span>() &#123;<br>	<span class="hljs-selector-tag">var</span> b1 B <span class="hljs-comment">// b1 是值</span><br>	b1<span class="hljs-selector-class">.change</span>()<br>	fmt<span class="hljs-selector-class">.Println</span>(b1<span class="hljs-selector-class">.write</span>())<br><br>	b2 := <span class="hljs-built_in">new</span>(B) <span class="hljs-comment">// b2 是指针</span><br>	b2<span class="hljs-selector-class">.change</span>()<br>	fmt<span class="hljs-selector-class">.Println</span>(b2<span class="hljs-selector-class">.write</span>())<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以通过 getter 和 setter 方法实现包的封装特性。命名：对于 setter 方法使用 Set 前缀，对于 getter 方法只使用成员名</p>
+<h3 id="内嵌类型的方法和继承"><a href="#内嵌类型的方法和继承" class="headerlink" title="内嵌类型的方法和继承"></a>内嵌类型的方法和继承</h3><p>当一个匿名类型被内嵌在结构体中时，匿名类型的可见方法也同样被内嵌，这在效果上等同于外层类型 <strong>继承</strong> 了这些方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;math&quot;</span><br>)<br><br><span class="hljs-keyword">type</span> Point <span class="hljs-keyword">struct</span> &#123;<br>	x, y <span class="hljs-type">float64</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Point)</span></span> Abs() <span class="hljs-type">float64</span> &#123;<br>	<span class="hljs-keyword">return</span> math.Sqrt(p.x*p.x + p.y*p.y)<br>&#125;<br><br><span class="hljs-keyword">type</span> NamedPoint <span class="hljs-keyword">struct</span> &#123;<br>	Point<br>	name <span class="hljs-type">string</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	n := &amp;NamedPoint&#123;Point&#123;<span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;, <span class="hljs-string">&quot;Pythagoras&quot;</span>&#125;<br>	fmt.Println(n.Abs()) <span class="hljs-comment">// 打印 5</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="for-range结构"><a href="#for-range结构" class="headerlink" title="for-range结构"></a>for-range结构</h1><p>迭代string、数组、map等</p>
+<p><strong>POINT：产生的只是值的一个拷贝，不能用来修改原对象的值。</strong></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">//pos为索引，char为内容（可以使用空白标识符丢弃</span><br><span class="hljs-type">str</span>:=<span class="hljs-string">&quot;hello,world!&quot;</span><br><span class="hljs-keyword">for</span> <span class="hljs-title class_">pos</span>, <span class="hljs-type">char</span> := range <span class="hljs-type">str</span> &#123;<br>		fmt.<span class="hljs-title function_ invoke__">Printf</span>(<span class="hljs-string">&quot;Character on position %d is: %c \n&quot;</span>, pos, <span class="hljs-type">char</span>)<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="new-和-make-的区别"><a href="#new-和-make-的区别" class="headerlink" title="new() 和 make() 的区别"></a>new() 和 make() 的区别</h1><ul>
+<li><p>new(T) </p>
+<p> 用来分配内存，它的第一个参数是一个类型，不是一个值，它的返回值是一个指向新分配类型零值的指针</p>
+</li>
+<li><p>make(T) </p>
+<p>内建函数 make 用来为 slice，map 或 chan 类型分配内存和初始化一个对象</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Note/">Note</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Go/">Go</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/19/Bingyan/">
+                        <span class="hidden-mobile">Record</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ip8afa84aYb24y4DnjNsMMhE-gzGzoHsz","appKey":"peM3gSyiYhmi3ir8zMLuTfIy","path":"window.location.pathname","placeholder":"Comment here","avatar":"hide","meta":["nick"],"requiredFields":[],"pageSize":6,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":true,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
