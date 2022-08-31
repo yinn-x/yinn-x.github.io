@@ -18,18 +18,18 @@
   
     <meta name="description" content="Go语法与特性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GoMemo">
+<meta property="og:title" content="Go Memo">
 <meta property="og:url" content="http://example.com/2022/03/26/8_GoMemo/index.html">
 <meta property="og:site_name" content="YiNN&#39;s Blog">
 <meta property="og:description" content="Go语法与特性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-26T05:39:04.000Z">
-<meta property="article:modified_time" content="2022-03-28T11:45:51.054Z">
+<meta property="article:modified_time" content="2022-06-01T12:55:05.313Z">
 <meta property="article:author" content="YIN xintian">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>GoMemo - YiNN&#39;s Blog</title>
+  <title>Go Memo - YiNN&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="GoMemo">
+            <span class="h2" id="subtitle" title="Go Memo">
               
             </span>
 
@@ -184,7 +184,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.6k 字
+      9.7k 字
     </span>
   
 
@@ -215,7 +215,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">GoMemo</h1>
+            <h1 style="display: none">Go Memo</h1>
             
             <div class="markdown-body">
               <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="切片slice"><a href="#切片slice" class="headerlink" title="切片slice"></a>切片slice</h2><p>切片是一个引用类型（指针）</p>
@@ -261,7 +261,7 @@
 
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//通过索引初始化切片中的map元素</span><br><span class="hljs-keyword">for</span> i:= <span class="hljs-keyword">range</span> items &#123;<br>	items[i] = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">1</span>)<br>	items[i][<span class="hljs-number">1</span>] = <span class="hljs-number">2</span><br>&#125;<br><span class="hljs-comment">//下面这种操作是错误的，无法初始化真正的map元素</span><br><span class="hljs-keyword">for</span> _, item := <span class="hljs-keyword">range</span> items2 &#123;<br>	item = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-type">int</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// item is only a copy of the slice element.</span><br>	item[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span> <span class="hljs-comment">// This &#x27;item&#x27; will be lost on the next iteration.</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="map的排序"><a href="#map的排序" class="headerlink" title="map的排序"></a>map的排序</h3><p>需要将 key（或者 value）拷贝到一个切片，再对切片排序（使用 sort 包，详见第 7.6.6 节），然后可以使用切片的 for-range 方法打印出所有的 key 和 value。</p>
+<h3 id="map的排序"><a href="#map的排序" class="headerlink" title="map的排序"></a>map的排序</h3><p>需要将 key（或者 value）拷贝到一个切片，再对切片排序，然后可以使用切片的 for-range 方法打印出所有的 key 和 value。</p>
 <h2 id="结构struct"><a href="#结构struct" class="headerlink" title="结构struct"></a>结构struct</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> identifier <span class="hljs-keyword">struct</span> &#123;<br>    field1 type1<br>    field2 type2<br>    ...<br>&#125;<br><span class="hljs-comment">//一般在函数外声明</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a><strong>创建实例</strong></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//使用 new 函数给一个新的结构体变量分配内存</span><br><span class="hljs-comment">//t为指针，结构体字段为零值</span><br>stu1 := <span class="hljs-built_in">new</span>(student) <br><span class="hljs-comment">//相当于</span><br>stu2 := &amp;student&#123;name: <span class="hljs-string">&quot;a&quot;</span>, num: <span class="hljs-number">1</span>&#125;<br><br><span class="hljs-comment">//t是student类型</span><br>stu2 := student&#123;name: <span class="hljs-string">&quot;a&quot;</span>, num: <span class="hljs-number">1</span>&#125;<br><span class="hljs-comment">//打印：</span><br><span class="hljs-comment">//stu1: &amp;&#123;a 1&#125;</span><br><span class="hljs-comment">//stu2:  &#123;a 1&#125;</span><br></code></pre></td></tr></table></figure>
@@ -333,17 +333,27 @@
 <p>第4行：当我们给变量 <code>i</code> 赋一个<code>square</code>类型的值时，它的静态类型还是 <code>Shaper</code> ，但是它的动态类型此时又变成了 <code>square</code>类型。</p>
 <p>当程序运行到这里时，变量的类型，才发生了改变。即动态类型是程序运行时系统才能看见的类型。</p>
 <h3 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h3><p>当一个类型包含（内嵌）另一个类型（实现了一个或多个接口）的指针时，这个类型就可以使用（另一个类型）所有的接口方法。</p>
-<h1 id="Go-中的面向对象"><a href="#Go-中的面向对象" class="headerlink" title="Go 中的面向对象"></a>Go 中的面向对象</h1><ul>
-<li><p>封装（数据隐藏）：和别的 OO 语言有 4 个或更多的访问层次相比，Go 把它简化为了 2 层：</p>
-<p>1）包范围内的：通过标识符首字母小写，对象只在它所在的包内可见</p>
-<p>2）可导出的：通过标识符首字母大写，对象对所在包以外也可见</p>
-</li>
-<li><p>继承：用组合实现：内嵌一个（或多个）包含想要的行为（字段和方法）的类型；多重继承可以通过内嵌多个类型实现</p>
-</li>
-<li><p>多态：用接口实现：某个类型的实例可以赋给它所实现的任意接口类型的变量。类型和接口是松耦合的，并且多重继承可以通过实现多个接口实现。Go 接口不是 Java 和 C# 接口的变体，而且接口间是不相关的，并且是大规模编程和可适应的演进型设计的关键。</p>
-</li>
-</ul>
+<h1 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//定义只读的channel</span><br>read_only := <span class="hljs-built_in">make</span> (&lt;-<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br><br><span class="hljs-comment">//定义只写的channel</span><br>write_only := <span class="hljs-built_in">make</span> (<span class="hljs-keyword">chan</span>&lt;- <span class="hljs-type">int</span>)<br><br><span class="hljs-comment">//可同时读写</span><br>read_write := <span class="hljs-built_in">make</span> (<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br></code></pre></td></tr></table></figure>
 
+<p>Channel是Go中的一个核心类型，通过它并发核心单元就可以发送或者接收数据进行通讯(communication)。</p>
+<p>它的操作符是箭头 <strong>&lt;-</strong> </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">ch &lt;- v    <span class="hljs-regexp">//</span> 发送值v到Channel ch中<br>v := &lt;-ch  <span class="hljs-regexp">//</span> 从Channel ch中接收数据，并将数据赋值给v<br></code></pre></td></tr></table></figure>
+
+<p>(箭头的指向就是数据的流向)</p>
+<p>就像 map 和 slice 数据类型一样, channel必须先创建再使用:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><p><code>select</code>语句选择一组可能的send操作和receive操作去处理。它类似<code>switch</code>,但是只是用来处理通讯(communication)操作。<br>它的<code>case</code>可以是send语句，也可以是receive语句，亦或者<code>default</code>。</p>
+<p><code>receive</code>语句可以将值赋值给一个或者两个变量。它必须是一个receive操作。</p>
+<p>最多允许有一个<code>default case</code>,它可以放在case列表的任何位置，尽管我们大部分会将它放在最后。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(c, quit <span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)</span></span> &#123;<br>    x, y := <span class="hljs-number">0</span>, <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> &#123;<br>        <span class="hljs-keyword">select</span> &#123;<br>        <span class="hljs-keyword">case</span> c &lt;- x:<br>            x, y = y, x+y<br>        <span class="hljs-keyword">case</span> &lt;-quit:<br>            fmt.Println(<span class="hljs-string">&quot;quit&quot;</span>)<br>            <span class="hljs-keyword">return</span><br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br>    quit := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-type">int</span>)<br>    <span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ &#123;<br>            fmt.Println(&lt;-c)<br>        &#125;<br>        quit &lt;- <span class="hljs-number">0</span><br>    &#125;()<br>    fibonacci(c, quit)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果有同时多个case去处理,比如同时有多个channel可以接收数据，那么Go会伪随机的选择一个case处理(pseudo-random)。如果没有case需要处理，则会选择<code>default</code>去处理，如果<code>default case</code>存在的情况下。如果没有<code>default case</code>，则<code>select</code>语句会阻塞，直到某个case需要处理。</p>
+<p>需要注意的是，nil channel上的操作会一直被阻塞，如果没有default case,只有nil channel的select会一直被阻塞。</p>
+<p><code>select</code>语句和<code>switch</code>语句一样，它不是循环，它只会选择一个case来处理，如果想一直处理channel，你可以在外面加一个无限的for循环：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs llvm">for &#123;<br>    <span class="hljs-keyword">select</span> &#123;<br>    case <span class="hljs-keyword">c</span> &lt;- <span class="hljs-keyword">x</span>:<br>        <span class="hljs-keyword">x</span><span class="hljs-punctuation">,</span> y <span class="hljs-operator">=</span> y<span class="hljs-punctuation">,</span> <span class="hljs-keyword">x</span>+y<br>    case &lt;-quit:<br>        fmt.Println(<span class="hljs-string">&quot;quit&quot;</span>)<br>        return<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
             </div>
             <hr>
             <div>
